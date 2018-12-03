@@ -1,15 +1,16 @@
 /*!
- * typeahead.js 1.2.0
- * https://github.com/twitter/typeahead.js
- * Copyright 2013-2017 Twitter, Inc. and other contributors; Licensed MIT
+ * typeahead.js 1.2.1
+ * https://github.com/corejavascript/typeahead.js
+ * Copyright 2013-2018 Twitter, Inc. and other contributors; Licensed MIT
  */
+
 
 (function(root, factory) {
     if (typeof define === "function" && define.amd) {
         define([ "jquery" ], function(a0) {
             return factory(a0);
         });
-    } else if (typeof exports === "object") {
+    } else if (typeof module === "object" && module.exports) {
         module.exports = factory(require("jquery"));
     } else {
         factory(root["jQuery"]);
@@ -864,6 +865,7 @@
                         that.cancel = $.noop;
                         var idx = Math.abs(rendered - that.limit);
                         rendered += idx;
+                        console.log("RENDERED", idx, suggestions.slice(0, idx));
                         that._append(query, suggestions.slice(0, idx));
                         that.async && that.trigger("asyncReceived", query, that.name);
                     }
