@@ -275,7 +275,6 @@ var Dataset = (function() {
           that.cancel = $.noop;
           var idx = Math.abs(rendered - that.limit);
           rendered += idx;
-          console.log('RENDERED', idx, suggestions.slice(0, idx))
           that._append(query, suggestions.slice(0, idx));
           that.async && that.trigger('asyncReceived', query, that.name);
         }
